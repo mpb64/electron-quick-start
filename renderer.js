@@ -1,10 +1,9 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process
-
-
 window.ipcRenderer.on('memory-info', callGetProcessMemoryInfo);
 
+/**
+ * Test function that attempts to call process.getProcessMemoryInfo()
+ * The available functions on the process api and the error thrown when calling getProcessMemoryInfo are shown on the window.
+ */
 async function callGetProcessMemoryInfo() {
     let process_func_list = "";
     for (var key in window.process) {

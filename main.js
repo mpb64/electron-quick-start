@@ -12,7 +12,7 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-    nodeIntegration: false,
+      nodeIntegration: false,
       sandbox: true,
       preload: path.join(__dirname, 'preload.js')
     }
@@ -20,6 +20,8 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+  //triggers call to process.getProcessMemoryInfo()
   mainWindow.webContents.once('dom-ready', () => {
 	mainWindow.webContents.send('memory-info');
 })
